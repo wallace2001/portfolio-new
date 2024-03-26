@@ -2,8 +2,6 @@
 
 import Article from "@/app/(root)/components/article";
 import { CarouselPlugin } from "@/components/carousel";
-import Container from "@/components/container";
-import Navbar from "@/components/navbar";
 import { ARTICLES, SOCIAL_MEDIAS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,8 +13,7 @@ import CardExperiences from "./components/card-experiences";
 const Home = () => {
 
     return (
-        <Container>
-            <Navbar />
+        <>
             <Image
                 width={60}
                 height={60}
@@ -50,7 +47,7 @@ const Home = () => {
                     <CardExperiences />
                 </div>
             </div>
-        </Container>
+        </>
     );
 }
 

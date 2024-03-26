@@ -1,4 +1,6 @@
 import ClientOnly from "@/components/ClientOnly";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -21,7 +23,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ClientOnly>
+            <Navbar />
             {children}
+            <Footer />
           </ClientOnly>
         </ThemeProvider>
       </body>
