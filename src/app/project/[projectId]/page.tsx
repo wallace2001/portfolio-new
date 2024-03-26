@@ -15,7 +15,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
     const project = ARTICLES.find(article => article.id === projectId);
 
     return (
-        <div className="mt-32 w-full">
+        <div className="mt-24 w-full">
             <div className="grid sm:grid-cols-7 gap-6 w-full">
                 <Link href="/" className="col-span-1 w-10 h-10 rounded-full bg-foreground/10 flex justify-center items-center hover:bg-foreground/5">
                     <IoArrowBackOutline className="text-foreground/40" />

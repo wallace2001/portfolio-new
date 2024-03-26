@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const MobileSidebar = () => {
 
@@ -34,19 +34,20 @@ const MobileSidebar = () => {
                     <div className="px-3 py-2 flex-1 mt-6">
                         <div className="space-y-1">
                             {OPTIONS.map((route) => (
-                                <Link
-                                    href={route.link}
-                                    key={route.link}
-                                    className={
-                                        cn("text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-foreground hover:bg-foreground/10 rounded-lg transition",
-                                            pathname === route.link ? "text-white bg-white/10" : "text-zinc-400")
-                                    }
-                                >
-                                    <div className="flex items-center flex-1">
-                                        {/* <route.icon className={cn("h-5 w-5 mr-3", route.color)} /> */}
-                                        {route.value}
-                                    </div>
-                                </Link>
+                                <SheetClose key={route.link} asChild>
+                                    <Link
+                                        href={route.link}
+                                        className={
+                                            cn("text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-foreground hover:bg-foreground/10 rounded-lg transition",
+                                                pathname === route.link ? "text-foreground bg-foreground/5" : "text-zinc-400")
+                                        }
+                                    >
+                                        <div className="flex items-center flex-1">
+                                            {/* <route.icon className={cn("h-5 w-5 mr-3", route.color)} /> */}
+                                            {route.value}
+                                        </div>
+                                    </Link>
+                                </SheetClose>
                             ))}
                         </div>
                     </div>
