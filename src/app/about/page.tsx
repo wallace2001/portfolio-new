@@ -17,10 +17,10 @@ const AboutPage = () => {
                 />
             </div>
             <div className="col-span-4">
-                <h4 className="text-4xl text-foreground font-bold lg:w-[80%] w-full">Sou Wallace, de Brasília, apaixonado por desenvolver os melhores sistemas.</h4>
-                <p className="text-sm text-foreground/80 mt-10">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
-                <p className="text-sm text-foreground/80 mt-10">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
-                <p className="text-sm text-foreground/80 mt-10">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
+                <h4 className="text-4xl md:text-5xl text-foreground font-bold lg:w-[80%] w-full">Sou Wallace, de Brasília, apaixonado por desenvolver os melhores sistemas.</h4>
+                <p className="text-sm text-foreground/80 mt-10 leading-6">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
+                <p className="text-sm text-foreground/80 mt-10 leading-6">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
+                <p className="text-sm text-foreground/80 mt-10 leading-6">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
             </div>
             <div className="hidden lg:flex col-span-2 flex-col">
                 <Image
