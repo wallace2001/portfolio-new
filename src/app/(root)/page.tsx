@@ -39,7 +39,7 @@ const Home = () => {
             <div className="grid lg:grid-cols-5 lg:gap-4 grid-cols-2">
                 <div className="col-span-3 w-full">
                     {ARTICLES.map(article => (
-                        <Article key={article.id} day="Setembro 5, 2022" title={article.title} description={article.description} />
+                        <Article key={article.id} article={article} />
                     ))}
                 </div>
                 <div className="col-span-2 mt-10 lg:justify-self-end">

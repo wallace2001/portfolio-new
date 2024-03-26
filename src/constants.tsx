@@ -8,22 +8,22 @@ export const TECHS = [
   {
     id: '1',
     title: 'Javascript',
-    icon: <SiJavascript color="#f7d619" size={30} />,
+    icon: <SiJavascript color="var(--foreground)" size={30} />,
   },
   {
     id: '2',
     title: 'React',
-    icon: <FaReact color="#12b2fc" size={30} />,
+    icon: <FaReact color="var(--foreground)" size={30} />,
   },
   {
     id: '3',
     title: 'Typescript',
-    icon: <SiTypescript color="#1048ff" size={30} />,
+    icon: <SiTypescript color="var(--foreground)" size={30} />,
   },
   {
     id: '4',
     title: 'NodeJs',
-    icon: <FaNodeJs color="#00cc2c" size={30} />,
+    icon: <FaNodeJs color="var(--foreground)" size={30} />,
   },
   {
     id: '5',
@@ -33,7 +33,7 @@ export const TECHS = [
   {
     id: '6',
     title: 'NestJs',
-    icon: <SiNestjs color="#c51e00" size={30} />,
+    icon: <SiNestjs color="var(--foreground)" size={30} />,
   },
   {
     id: '7',
@@ -43,42 +43,42 @@ export const TECHS = [
   {
     id: '8',
     title: 'Java',
-    icon: <FaJava color="#5574da" size={30} />,
+    icon: <FaJava color="var(--foreground)" size={30} />,
   },
   {
     id: '9',
     title: 'Spring boot',
-    icon: <SiSpring color="#009225" size={30} />,
+    icon: <SiSpring color="var(--foreground)" size={30} />,
   },
   {
     id: '10',
     title: 'PHP',
-    icon: <SiPhp color="#1048ff" size={30} />,
+    icon: <SiPhp color="var(--foreground)" size={30} />,
   },
   {
     id: '11',
     title: 'Laravel',
-    icon: <SiLaravel color="#ff1010" size={30} />,
+    icon: <SiLaravel color="var(--foreground)" size={30} />,
   },
   {
     id: '12',
     title: 'MySQL',
-    icon: <SiMysql color="#3c4fff" size={30} />,
+    icon: <SiMysql color="var(--foreground)" size={30} />,
   },
   {
     id: '13',
     title: 'MongoDB',
-    icon: <SiMongodb color="#04924b" size={30} />,
+    icon: <SiMongodb color="var(--foreground)" size={30} />,
   },
   {
     id: '14',
     title: 'PostgreSQL',
-    icon: <SiPostgresql color="#0049e7" size={30} />,
+    icon: <SiPostgresql color="var(--foreground)" size={30} />,
   },
   {
     id: '15',
     title: 'Docker',
-    icon: <SiDocker color="#0887ff" size={30} />,
+    icon: <SiDocker color="var(--foreground)" size={30} />,
   },
 ];
 
@@ -104,16 +104,19 @@ export const SOCIAL_MEDIAS = [
 export const ARTICLES = [
   {
     id: "1",
+    day: "Setembro 5, 2022",
     title: "Criando um sistema de ecommerce completo com dashboard",
     description: "Nesse artigo você verá um pouco como foi criado o meu sistema de ecommerce, primeiramente vou explicar como funciona, as funcionalidades e tudo que é possivel fazer. Logo após estará disponivel como rodar o aplicado no seu ambiente.",
   },
   {
     id: "2",
+    day: "Setembro 5, 2022",
     title: "Criando um sistema de ecommerce completo com dashboard",
     description: "Nesse artigo você verá um pouco como foi criado o meu sistema de ecommerce, primeiramente vou explicar como funciona, as funcionalidades e tudo que é possivel fazer. Logo após estará disponivel como rodar o aplicado no seu ambiente.",
   },
   {
     id: "3",
+    day: "Setembro 5, 2022",
     title: "Criando um sistema de ecommerce completo com dashboard",
     description: "Nesse artigo você verá um pouco como foi criado o meu sistema de ecommerce, primeiramente vou explicar como funciona, as funcionalidades e tudo que é possivel fazer. Logo após estará disponivel como rodar o aplicado no seu ambiente.",
   },
@@ -123,7 +126,7 @@ export const OPTIONS = [
   {
       id: "1",
       value: "Home",
-      link: "/home"
+      link: "/"
   },
   {
       id: "2",
