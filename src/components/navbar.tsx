@@ -1,37 +1,10 @@
 "use client";
 
+import { OPTIONS } from "@/constants";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileSidebar from "./mobile-sidebar";
 import { ModeToggle } from "./theme-toggle";
-
-const options = [
-    {
-        id: "1",
-        value: "Home",
-        link: "/home"
-    },
-    {
-        id: "2",
-        value: "Sobre",
-        link: "/about"
-    },
-    {
-        id: "3",
-        value: "Projetos",
-        link: "/projects"
-    },
-    {
-        id: "4",
-        value: "Contato",
-        link: "/speaking"
-    },
-    {
-        id: "5",
-        value: "Uses",
-        link: "/uses"
-    },
-];
 
 const Navbar = () => {
     const [isFixed, setIsFixed] = useState(false);
@@ -59,7 +32,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="fixed top-10 left-0 right-0 px-10 md:hidden flex justify-between items-center w-full">
+            <div className="z-10 fixed top-10 left-0 right-0 px-10 md:hidden flex justify-between items-center w-full">
                 <div className="flex justify-between w-full">
                     <MobileSidebar />
                     <div className="flex-1 flex justify-end">
@@ -67,7 +40,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className={`transition ease-in-out fixed top-10 left-0 right-0 w-full md:flex md:w-full hidden justify-center items-center`}>
+            <div className={`z-10 transition ease-in-out fixed top-10 left-0 right-0 w-full md:flex md:w-full hidden justify-center items-center`}>
                 <div className="flex justify-between items-center">
                     <div className="flex-1" />
                     <div className="flex-1 flex justify-center">
@@ -82,7 +55,7 @@ const Navbar = () => {
                             items-center
                             font-bold
                         ">
-                            {options.map(option => (
+                            {OPTIONS.map(option => (
                                 <Link className="m-2 text-[13px] hover:text-[#2CBDAA]" href={option.link} key={option.id}>
                                     {option.value}
                                 </Link>

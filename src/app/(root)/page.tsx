@@ -1,33 +1,18 @@
+"use client";
+
+import Article from "@/app/(root)/components/article";
 import { CarouselPlugin } from "@/components/carousel";
 import Container from "@/components/container";
 import Navbar from "@/components/navbar";
+import { ARTICLES, SOCIAL_MEDIAS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import { BsTwitterX } from "react-icons/bs";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { IoLogoInstagram } from "react-icons/io";
+import CardEmail from "./components/card-email";
+import CardExperiences from "./components/card-experiences";
 
-const socialMedias = [
-    {
-        id: "1",
-        icon: <BsTwitterX size={17} />,
-    },
-    {
-        id: "2",
-        icon: <IoLogoInstagram size={17} />,
-    },
-    {
-        id: "3",
-        icon: <FaGithub size={17} />,
-    },
-    {
-        id: "4",
-        icon: <FaLinkedin size={17} />,
-    },
-];
 
-const Home = async () => {
+const Home = () => {
 
     return (
         <Container>
@@ -43,17 +28,28 @@ const Home = async () => {
             <div className="py-12 w-[80%]">
                 <h4 className="text-4xl font-bold">Desenvolvedor de software, apaixonado por programação</h4>
                 <p className="text-foreground/50 text-sm py-6">Sou um desenvolvedor FullStack pleno com mais de 4 anos de experiência no mercado de tecnologia. Estou constantemente buscando oportunidades para aprender e crescer, e encaro desafios com entusiasmo, pois acredito que cada obstáculo é uma chance de adquirir novos conhecimentos.</p>
-                <div className="grid grid-cols-4 gap-12 w-24">
-                    {socialMedias.map(social => (
-                        <Link href="" key={social.id} className="hover:text-foreground/50">
+                <div className="grid grid-cols-4 gap-10 w-24">
+                    {SOCIAL_MEDIAS.map(social => (
+                        <Link href="" key={social.id} className="text-foreground/50 hover:text-foreground/70">
                             {social.icon}
                         </Link>
                     ))}
                 </div>
             </div>
             <Suspense>
-                <CarouselPlugin />
+                <CarouselPlugin title="Tecnologias"/>
             </Suspense>
+            <div className="grid lg:grid-cols-5 lg:gap-4 grid-cols-2">
+                <div className="col-span-3 w-full">
+                    {ARTICLES.map(article => (
+                        <Article key={article.id} day="Setembro 5, 2022" title={article.title} description={article.description} />
+                    ))}
+                </div>
+                <div className="col-span-2 mt-10 lg:justify-self-end">
+                    <CardEmail />
+                    <CardExperiences />
+                </div>
+            </div>
         </Container>
     );
 }

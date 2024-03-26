@@ -1,5 +1,6 @@
 "use client";
 
+import { OPTIONS } from "@/constants";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -7,35 +8,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-
-const options = [
-    {
-        id: "1",
-        value: "Home",
-        link: "/home"
-    },
-    {
-        id: "2",
-        value: "Sobre",
-        link: "/about"
-    },
-    {
-        id: "3",
-        value: "Projetos",
-        link: "/projects"
-    },
-    {
-        id: "4",
-        value: "Contato",
-        link: "/speaking"
-    },
-    {
-        id: "5",
-        value: "Uses",
-        link: "/uses"
-    },
-];
-
 
 const MobileSidebar = () => {
 
@@ -61,7 +33,7 @@ const MobileSidebar = () => {
                 <div className="space-y-4 py-4 flex flex-col h-full bg-backgroundContent text-white">
                     <div className="px-3 py-2 flex-1 mt-6">
                         <div className="space-y-1">
-                            {options.map((route) => (
+                            {OPTIONS.map((route) => (
                                 <Link
                                     href={route.link}
                                     key={route.link}
