@@ -85,18 +85,22 @@ export const TECHS = [
 export const SOCIAL_MEDIAS = [
   {
     id: "1",
+    message: "Follow on X",
     icon: <BsTwitterX size={20} />,
   },
   {
     id: "2",
+    message: "Follow on Instagram",
     icon: <IoLogoInstagram size={20} />,
   },
   {
     id: "3",
+    message: "Follow on Github",
     icon: <FaGithub size={20} />,
   },
   {
     id: "4",
+    message: "Follow on Linkedin",
     icon: <FaLinkedin size={20} />,
   },
 ];
