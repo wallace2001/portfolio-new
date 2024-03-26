@@ -1,13 +1,16 @@
 "use client";
 
 import { OPTIONS } from "@/constants";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MobileSidebar from "./mobile-sidebar";
 import { ModeToggle } from "./theme-toggle";
 
 const Navbar = () => {
     const [isFixed, setIsFixed] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         let lastScrollTop = 0;
@@ -58,7 +61,11 @@ const Navbar = () => {
                             font-bold
                         ">
                             {OPTIONS.map(option => (
-                                <Link className="m-2 text-[13px] hover:text-[#2CBDAA]" href={option.link} key={option.id}>
+                                <Link className={
+                                    cn("m-2 text-[13px] hover:text-[#2CBDAA]",
+                                    pathname === option.link ? 'text-[#2CBDAA]' : ''
+                                    )
+                                } href={option.link} key={option.id}>
                                     {option.value}
                                 </Link>
                             ))}
