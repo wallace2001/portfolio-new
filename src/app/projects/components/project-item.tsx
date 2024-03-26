@@ -9,8 +9,8 @@ const ProjectItem = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div className="space-y-4  flex flex-col">
-            <div className="py-2 flex-1">
+        <div className="space-y-4 border rounded-md flex shadow flex-col">
+            <div className="flex-1">
                 <div className="space-y-1">
                     <Link
                         href={`#`}
@@ -24,8 +24,8 @@ const ProjectItem = () => {
                             </div>
                         </div>
                         <div className="flex flex-col items-start">
-                            <p className="text-[15px] mt-2 font-bold text-foreground/80">Planetaria</p>
-                            <p className="text-sm mt-2 text-foreground/50">Creating techolonogy to empower civilians to explore space on their own terms.</p>
+                            <p className="text-[15px] mt-2 font-bold text-foreground/80">Ecommerce</p>
+                            <p className="text-sm mt-2 text-foreground/50">Criando um sistema de ecommerce completo com todas as funcionalidades.</p>
                             <p className={
                                 cn("mt-4 text-foreground/50 flex items-center",
                                 isHovered ? "text-[#2CBDAA]" : ""
