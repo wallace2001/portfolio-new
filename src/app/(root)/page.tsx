@@ -24,7 +24,7 @@ const Home = () => {
 
             <div className="py-12">
                 <h4 className="text-4xl font-bold w-[80%]">Desenvolvedor de software, apaixonado por programação</h4>
-                <p className="text-foreground/50 text-sm py-6">Sou um desenvolvedor FullStack pleno com mais de 4 anos de experiência no mercado de tecnologia. Estou constantemente buscando oportunidades para aprender e crescer, e encaro desafios com entusiasmo, pois acredito que cada obstáculo é uma chance de adquirir novos conhecimentos.</p>
+                <p className="text-foreground/50 text-sm py-6 lg:w-[80%]">Sou um desenvolvedor FullStack pleno com mais de 4 anos de experiência no mercado de tecnologia. Estou constantemente buscando oportunidades para aprender e crescer, e encaro desafios com entusiasmo, pois acredito que cada obstáculo é uma chance de adquirir novos conhecimentos.</p>
                 <div className="grid grid-cols-4 gap-10 w-24">
                     {SOCIAL_MEDIAS.map(social => (
                         <Link href="" key={social.id} className="text-foreground/50 hover:text-foreground/70">
