@@ -147,9 +147,4 @@ export const OPTIONS = [
       value: "Contato",
       link: "/speaking"
   },
-  {
-      id: "5",
-      value: "Uses",
-      link: "/uses"
-  },
 ];
