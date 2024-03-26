@@ -33,9 +33,11 @@ const Navbar = () => {
     return (
         <>
             <div className="z-10 fixed top-10 left-0 right-0 px-10 md:hidden flex justify-between items-center w-full">
-                <div className="flex justify-between w-full">
-                    <MobileSidebar />
-                    <div className="flex-1 flex justify-end">
+                <div className="flex justify-end w-full">
+                    <div className="mr-4">
+                        <MobileSidebar />
+                    </div>
+                    <div>
                         <ModeToggle />
                     </div>
                 </div>
