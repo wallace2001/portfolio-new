@@ -24,6 +24,7 @@ const config = {
         ring: "hsl(var(--ring))",
         shadow: "hsl(var(--shadow-color))",
         backgroundContent: "hsl(var(--background-content))",
+        backgroundSidebar: "hsl(var(--background-sidebar))",
         secondaryContent: {
           DEFAULT: "hsl(var(--secondary-background-content))",
           foreground: "hsl(var(--primary-foreground))",
