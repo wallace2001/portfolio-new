@@ -1,6 +1,7 @@
 "use client";
 
 import Article from "@/app/(root)/components/article";
+import ClientOnly from "@/components/ClientOnly";
 import { CarouselPlugin } from "@/components/carousel";
 import { ARTICLES, SOCIAL_MEDIAS } from "@/constants";
 import Image from "next/image";
@@ -13,7 +14,7 @@ import CardExperiences from "./components/card-experiences";
 const Home = () => {
 
     return (
-        <>
+        <ClientOnly>
             <Image
                 width={60}
                 height={60}
@@ -47,7 +48,7 @@ const Home = () => {
                     <CardExperiences />
                 </div>
             </div>
-        </>
+        </ClientOnly>
     );
 }
 

@@ -1,10 +1,8 @@
-import ClientOnly from "@/components/ClientOnly";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
-import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import { Providers } from "./providers/authProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,16 +16,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ClientOnly>
-            <Navbar />
-            {children}
-            <Footer />
-          </ClientOnly>
-        </ThemeProvider>
+        <Providers>{children}</Providers>
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );
