@@ -6,11 +6,11 @@ import { Separator } from "./ui/separator";
 
 const Footer = () => {
     return (
-        <div className="w-full h-full flex justify-center flex-col items-center transition-all duration-150 mt-16">
+        <div className="w-full flex justify-center flex-col items-center transition-all duration-150">
             <div className="w-full h-full bg-backgroundContent">
                 <Separator className="h-[2px]" />
 
-                <div className="flex justify-between items-center my-8 lg:flex-row flex-col">
+                <div className=" px-52 flex justify-between items-center my-8 lg:flex-row flex-col">
                     <div className="flex justify-between items-center">
                         {OPTIONS.map(option => (
                             <Link className="m-2 text-[13px] font-bold text-foreground/80 hover:text-[#2CBDAA]" href={option.link} key={option.id}>

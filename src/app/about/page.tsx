@@ -5,7 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
 
+const teste = '<p><span class="ql-size-huge">Sou Wallace, de Brasília, apaixonado por desenvolver os melhores sistemas.</span><p><br><p><span class="ql-size-small">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</span><p><br><pre class="ql-syntax" spellcheck="false">const minhaString = `Esta é a primeira linha.Esta é a segunda linha.`;\nconsole.log(minhaString);</pre><p><br><p><span class="ql-size-small">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</span>';
+
 const AboutPage = () => {
+    const processHTML = (html) => {
+        let processedHTML = html.replace(/<span class="ql-size-huge">/g, '<p class="text-4xl md:text-5xl text-foreground font-bold lg:w-[80%] w-full">')
+        .replace(/<pre.*?>(.*?)<\/pre>/gs, `<div class="overflow-auto w-full my-2 text-foreground/90 bg-backgroundSidebar p-2 rounded-lg"><pre><code class="language-typescript">$1</code></pre></div>`)
+        .replace(/<span class="ql-size-small">/g, '<p class="text-sm text-foreground/80 mt-2 leading-6">');
+        return processedHTML;
+      };
+
     return (
         <ClientOnly>
             <div className="grid lg:grid-cols-6 gap-6 mt-32">
@@ -18,11 +27,8 @@ const AboutPage = () => {
                         alt=""
                     />
                 </div>
-                <div className="col-span-4">
-                    <h4 className="text-4xl md:text-5xl text-foreground font-bold lg:w-[80%] w-full">Sou Wallace, de Brasília, apaixonado por desenvolver os melhores sistemas.</h4>
-                    <p className="text-sm text-foreground/80 mt-10 leading-6">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
-                    <p className="text-sm text-foreground/80 mt-10 leading-6">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
-                    <p className="text-sm text-foreground/80 mt-10 leading-6">Sou um desenvolvedor FullStack pleno, com mais de 4 anos de experiência no mercado de tecnologia. Estou sempre em busca de oportunidades para aprender e crescer. Encaro desafios com entusiasmo, pois vejo cada obstáculo como uma chance de adquirir novos conhecimentos.</p>
+                <div className="col-span-4 flex flex-col">
+                <div dangerouslySetInnerHTML={{ __html: processHTML(teste) }} />
                 </div>
                 <div className="hidden lg:flex col-span-2 flex-col">
                     <Image

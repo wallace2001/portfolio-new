@@ -3,7 +3,6 @@
 import {
   Carousel, CarouselContent, CarouselItem
 } from "@/components/ui/carousel";
-import { TECHS } from "@/constants";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from 'react';
 import { Card, CardContent } from './ui/card';
@@ -28,7 +27,7 @@ export const CarouselPlugin = ({ title }: ICarousel) => {
         className="w-full"
       >
         <CarouselContent>
-          {TECHS.map((_, index) => (
+          {[].map((_, index) => (
             <CarouselItem key={index} className="basis-1/3 lg:basis-1/6">
               <div className="p-1">
                 <Card>
