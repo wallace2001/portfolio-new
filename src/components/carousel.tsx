@@ -6,12 +6,14 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from 'react';
 import { Card, CardContent } from './ui/card';
+import Icon from "./icon";
 
 interface ICarousel {
   title: string;
+  techs: Tech[];
 }
 
-export const CarouselPlugin = ({ title }: ICarousel) => {
+export const CarouselPlugin = ({ title, techs }: ICarousel) => {
   const plugin = useRef(
     Autoplay({ delay: 1500, stopOnInteraction: false })
   );
@@ -27,13 +29,13 @@ export const CarouselPlugin = ({ title }: ICarousel) => {
         className="w-full"
       >
         <CarouselContent>
-          {[].map((_, index) => (
+          {techs?.map((_, index) => (
             <CarouselItem key={index} className="basis-1/3 lg:basis-1/6">
               <div className="p-1">
                 <Card>
                   <CardContent className="flex flex-col aspect-square items-center justify-center p-4">
-                    {_.icon}
-                    <span className="text-[12px] text-foreground/70 mt-2">{_.title}</span>
+                    <Icon size={26} icon={_.icon} />
+                    <span className="text-[12px] text-foreground/70 mt-2">{_.name}</span>
                   </CardContent>
                 </Card>
               </div>

@@ -2,28 +2,31 @@ import { BsTwitterX } from "react-icons/bs";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";
 
-export const SOCIAL_MEDIAS = [
-  {
+export const SOCIAL_MEDIAS = {
+  "x": {
     id: "1",
     message: "Follow on X",
     icon: <BsTwitterX size={20} />,
   },
-  {
+  "instagram": {
     id: "2",
+    key: "instagram",
     message: "Follow on Instagram",
     icon: <IoLogoInstagram size={20} />,
   },
-  {
+  "github": {
     id: "3",
+    key: "github",
     message: "Follow on Github",
     icon: <FaGithub size={20} />,
   },
-  {
+  "linkedin": {
     id: "4",
+    key: "linkedin",
     message: "Follow on Linkedin",
     icon: <FaLinkedin size={20} />,
-  },
-];
+  }
+};
 
 export const ARTICLES = [
   {

@@ -5,7 +5,6 @@ import { FaAngular, FaAws, FaDocker, FaEmber, FaFlask, FaGit, FaJava, FaJenkins,
 import { FaGolang } from "react-icons/fa6";
 import { SiAnsible, SiGraphql, SiIbmcloud, SiJavascript, SiKubernetes, SiLaravel, SiMercurial, SiMicrosoftazure, SiMicrosoftsqlserver, SiMongodb, SiMysql, SiNestjs, SiPhp, SiPostgresql, SiRuby, SiRubyonrails, SiSelenium, SiSpring, SiSqlite, SiTypescript } from "react-icons/si";
 import { TbBrandCSharp, TbBrandKotlin, TbBrandNextjs, TbBrandOauth, TbBrandSvelte } from "react-icons/tb";
-
 interface IIconComponents extends IconBaseProps {
   icon:
     "react" |

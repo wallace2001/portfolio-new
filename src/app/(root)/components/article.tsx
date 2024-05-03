@@ -4,18 +4,14 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { format } from "date-fns";
 
 interface IArticle {
-    article: {
-        id: string;
-        title: string;
-        day: string;
-        description: string;
-    };
+    article: Article;
 }
 
 const Article = ({ article }: IArticle) => {
-    const { id, title, description, day } = article;
+    const { id, title, description, createdAt } = article;
 
     const pathname = usePathname();
     return (
@@ -23,7 +19,7 @@ const Article = ({ article }: IArticle) => {
             <div className="py-2 flex-1 mt-6">
                 <div className="space-y-1">
                     <Link
-                        href={`/project/${id}`}
+                        href={`/article/${id}`}
                         key={id}
                         className={
                             cn("text-sm flex-col group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-foreground hover:bg-foreground/10 rounded-lg transition",
@@ -32,7 +28,7 @@ const Article = ({ article }: IArticle) => {
                     >
                         <div className="w-full h-4 flex flex-row items-center mb-4">
                             <span className="w-[2px] h-full bg-foreground/30" />
-                            <span className="ml-6 text-[12px]">{day}</span>
+                            <span className="ml-6 text-[12px]">{format(new Date(createdAt), 'MMMM d, yyyy')}</span>
                         </div>
 
                         <h4 className="text-foreground text-[14px]">{title}</h4>

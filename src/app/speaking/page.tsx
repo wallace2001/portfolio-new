@@ -1,5 +1,6 @@
 "use client";
 
+import { getUserAbout, getUserContact } from "@/actions/fetch-profile";
 import ClientOnly from "@/components/ClientOnly";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -9,9 +10,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { SOCIAL_MEDIAS } from "@/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdEmail } from "react-icons/md";
 import { z } from "zod";
+import NotFound from "../not-found";
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -29,6 +32,7 @@ const formSchema = z.object({
 })
 
 const SpeakingPage = () => {
+    const [profile, setProfile] = useState<User>();
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -46,28 +50,46 @@ const SpeakingPage = () => {
         console.log(values)
     }
 
+    const fetchUser = async () => {
+        try {
+            const u = await getUserContact();
+            setProfile(u);
+        } catch (error) {
+            
+        }
+    };
+
+    useEffect(() => {
+        fetchUser();
+    }, []);
+
+    if (!profile) {
+        return (
+            <NotFound />
+        );
+    }
+
     return (
         <ClientOnly>
             <div className="mt-24">
                 <div className="flex w-full flex-col">
-                    <p className="text-4xl md:text-5xl md:w-[70%] w-full text-foreground font-bold leading-10">Entre em contato comigo e vamos tirar sua ideia do papel.</p>
-                    <p className="mt-4 text-sm text-foreground/80 md:w-[70%] w-full leading-7">Trabalhei em vários projetos ao longo dos anos, mas estes são os que mais me orgulham. Muitos deles são de código aberto, então se você encontrar algo que desperte seu interesse, confira o código e contribua se tiver ideias de como ele pode ser melhorado.</p>
+                    <p className="text-4xl md:text-5xl md:w-[70%] w-full text-foreground font-bold leading-10">{profile?.ProfileUser.Contact.title}</p>
+                    <p className="mt-4 text-sm text-foreground/80 md:w-[70%] w-full leading-7">{profile?.ProfileUser.Contact.description}</p>
                 </div>
                 <div className="flex flex-col">
                     <div className="flex flex-col md:flex-row md:gap-6 mt-2">
-                        {SOCIAL_MEDIAS.map(media =>
-                            <Link href="#" key={media.id} className="my-2 flex flex-row items-center text-foreground/50 hover:text-[#2CBDAA]">
-                                {media.icon}
-                                <p className="text-[13px] ml-2 font-bold">{media.message}</p>
+                        {profile?.ProfileUser?.linkProfiles?.map(social => (
+                            <Link target="_blank" href={social.linkUrl} key={social.linkUrl} className="text-foreground/50 hover:text-foreground/70">
+                                {SOCIAL_MEDIAS[social.link.icon].icon}
                             </Link>
-                        )}
+                        ))}
                     </div>
 
                     <Separator className="my-8" />
 
                     <Link href="#" className="my-2 flex flex-row items-center text-foreground/50 hover:text-[#2CBDAA]">
                         <MdEmail color="var(--foreground/80)" />
-                        <p className="text-[13px] ml-2 font-bold">dev_kollen@outlook.com</p>
+                        <p className="text-[13px] ml-2 font-bold">{profile?.email}</p>
                     </Link>
                 </div>
                 <Separator className="my-10" />

@@ -6,8 +6,8 @@ import { Separator } from "./ui/separator";
 
 const Footer = () => {
     return (
-        <div className="w-full flex justify-center flex-col items-center transition-all duration-150">
-            <div className="w-full h-full bg-backgroundContent">
+        <footer className="w-full flex justify-center flex-col items-center transition-all duration-150">
+            <div className="w-full bg-backgroundContent">
                 <Separator className="h-[2px]" />
 
                 <div className=" px-52 flex justify-between items-center my-8 lg:flex-row flex-col">
@@ -21,7 +21,7 @@ const Footer = () => {
                     <span className="text-sm text-foreground/50">© 2024 Wallace Silva. Todos os direitos reservados.</span>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }
 
