@@ -10,6 +10,7 @@ export const getUser = async () => {
         query: `query getUser($name: String!) {
             getUser(name: $name) {
               name
+              email
     					ProfileUser {
                 title
                 description

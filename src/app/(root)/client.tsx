@@ -16,7 +16,6 @@ interface IHomeClient {
 }
 
 const HomeClient = ({ user }: IHomeClient) => {
-    console.log(user);
     return (
         <ClientOnly>
             <Image
@@ -48,7 +47,7 @@ const HomeClient = ({ user }: IHomeClient) => {
                     ))}
                 </div>
                 <div className="col-span-2 mt-10 lg:justify-self-end">
-                    <CardEmail />
+                    <CardEmail email={user?.email} />
                     <CardExperiences experiences={user.ProfileUser.experiences} />
                 </div>
             </div>
