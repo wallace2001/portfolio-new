@@ -27,32 +27,35 @@ const AboutPage = async () => {
 
     return (
         <ClientOnly>
-            <div className="grid lg:grid-cols-6 gap-6 mt-32">
+            <div className="h-full grid lg:grid-cols-6 gap-6 mt-32">
                 <div className="lg:hidden flex col-span-2 flex-col">
                     <Image
                         width={300}
                         height={300}
-                        className="rounded-2xl mt-2 rotate-3"
+                        className="rounded-2xl mt-2"
                         src={profile.avatar.url}
                         alt=""
                     />
                 </div>
-                <div className="col-span-4 flex flex-col">
-                <div dangerouslySetInnerHTML={{ __html: processHTML(profile.ProfileUser.about) }} />
+                <div className="sm:max-w-[80vw] max-w-[90vw] col-span-4 flex flex-col">
+                    <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: processHTML(profile.ProfileUser.about) }} />
                 </div>
                 <div className="hidden lg:flex col-span-2 flex-col">
                     <Image
                         width={300}
                         height={300}
-                        className="rounded-2xl mt-2 rotate-3"
+                        className="rounded-2xl mt-2"
                         src={profile.avatar.url}
                         alt=""
                     />
 
-                    <div className="flex flex-col mt-8">
+                    <div className="flex flex-col mt-8 gap-2">
                         {profile?.ProfileUser?.linkProfiles?.map(social => (
-                            <Link target="_blank" href={social.linkUrl} key={social.linkUrl} className="text-foreground/50 hover:text-foreground/70">
-                                {SOCIAL_MEDIAS[social.link.icon].icon}
+                            <Link target="_blank" href={social.linkUrl} key={social.linkUrl} className="flex justify-start items-center text-foreground/50 hover:text-[#2CBDAA] text-sm">
+                                <div className="flex justify-center gap-2">
+                                    {SOCIAL_MEDIAS[social.link.icon].icon}
+                                    {SOCIAL_MEDIAS[social.link.icon].message}
+                                </div>
                             </Link>
                         ))}
                     </div>
@@ -66,10 +69,13 @@ const AboutPage = async () => {
                 </div>
                 <div className="lg:hidden flex col-span-2 flex-col">
                     <div className="flex flex-col mt-8">
-                        <div className="flex flex-col mt-8">
+                        <div className="flex flex-col mt-8 gap-4 justify-start items-start">
                             {profile?.ProfileUser?.linkProfiles?.map(social => (
-                                <Link target="_blank" href={social.linkUrl} key={social.linkUrl} className="text-foreground/50 hover:text-foreground/70">
+                                <Link target="_blank" href={social.linkUrl} key={social.linkUrl} className="flex justify-center items-center text-foreground/50 hover:text-[#2CBDAA]">
+                                <div className="flex justify-center gap-2">
                                     {SOCIAL_MEDIAS[social.link.icon].icon}
+                                    {SOCIAL_MEDIAS[social.link.icon].message}
+                                </div>
                                 </Link>
                             ))}
                         </div>

@@ -22,7 +22,7 @@ const HomeClient = ({ user }: IHomeClient) => {
                 width={60}
                 height={60}
                 className="rounded-full mt-20"
-                src="https://avatars.githubusercontent.com/u/70642744?v=4"
+                src={user?.avatar.url}
                 alt=""
             />
 
@@ -48,7 +48,7 @@ const HomeClient = ({ user }: IHomeClient) => {
                 </div>
                 <div className="col-span-2 mt-10 lg:justify-self-end">
                     <CardEmail email={user?.email} />
-                    <CardExperiences experiences={user.ProfileUser.experiences} />
+                    <CardExperiences cvUrl={user?.ProfileUser.Curriculum.url} experiences={user.ProfileUser.experiences} />
                 </div>
             </div>
         </ClientOnly>

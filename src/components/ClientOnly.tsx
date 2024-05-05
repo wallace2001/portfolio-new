@@ -22,7 +22,7 @@ const ClientOnly: React.FC<ClientOnlyProps> = ({
         <div>
             <Navbar />
             <div className="w-full h-full flex justify-center flex-col items-center transition-all duration-150">
-                <div className="mx-auto w-full min-h-screen max-w-6xl lg:px-8 bg-backgroundContent px-4 py-6">
+                <div className="mx-auto w-full min-h-screen md:max-w-6xl lg:px-8 bg-backgroundContent px-4 py-6">
                     {children}
                 </div>
                 <Footer />

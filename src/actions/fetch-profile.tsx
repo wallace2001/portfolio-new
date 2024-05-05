@@ -15,6 +15,9 @@ export const getUser = async () => {
                 title
                 description
                 about
+                Curriculum {
+                  url
+                }
                 techs {
                   name
                   icon

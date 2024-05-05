@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="w-full bg-backgroundContent">
                 <Separator className="h-[2px]" />
 
-                <div className=" px-52 flex justify-between items-center my-8 lg:flex-row flex-col">
+                <div className="px-20 sm:px-52 flex justify-between items-center my-8 lg:flex-row flex-col">
                     <div className="flex justify-between items-center">
                         {OPTIONS.map(option => (
                             <Link className="m-2 text-[13px] font-bold text-foreground/80 hover:text-[#2CBDAA]" href={option.link} key={option.id}>

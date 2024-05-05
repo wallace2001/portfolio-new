@@ -113,6 +113,9 @@ interface User {
             name: string;
             icon: string;
         }[];
+        Curriculum: {
+            url: string;
+        }
         Contact: Contact;
         ProjectPage: ProjectPage;
         linkProfiles: {
