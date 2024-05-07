@@ -1,74 +1,71 @@
 
-import axios from "axios";
+import request, { gql } from 'graphql-request';
 
 export const getUser = async () => {
     try {
-      const headers = {
-        "content-type": "application/json",
-      };
-      const requestBody = {
-        query: `query getUser($name: String!) {
-            getUser(name: $name) {
-              name
-              email
-    					ProfileUser {
-                title
-                description
-                about
-                Curriculum {
-                  url
-                }
-                techs {
-                  name
-                  icon
-                }
-                links {
-                  name
-                  icon
-                }
-                linkProfiles {
-                  link {
-                    name
-                    icon
-                  }
-                  linkUrl
-                }
-                experiences {
-                  name
-                  date {
-                    from
-                    to
-                  }
-                }
-              }
-    					Project {
-                title
-                description
-                image {
-                  url
-                }
-                content
-                createdAt
-              }
-    					Article {
-                id
-                title
-                description
-                content
-                createdAt
-              }
-              avatar {
-                id
+      const endpoint = process.env.NEXT_PUBLIC_SERVER_URI!;
+      const mutation = gql`
+        query getUser($name: String!) {
+          getUser(name: $name) {
+            name
+            email
+            ProfileUser {
+              title
+              description
+              about
+              Curriculum {
                 url
               }
-          }
-        }`,
-        variables: { name: 'Wallace' },
-      };
-      const response = await axios.post(process.env.NEXT_PUBLIC_SERVER_URI!, JSON.stringify(requestBody), {
-        headers: headers
-      });  
-      return response?.data.data.getUser;
+              techs {
+                name
+                icon
+              }
+              links {
+                name
+                icon
+              }
+              linkProfiles {
+                link {
+                  name
+                  icon
+                }
+                linkUrl
+              }
+              experiences {
+                name
+                date {
+                  from
+                  to
+                }
+              }
+            }
+            Project {
+              title
+              description
+              image {
+                url
+              }
+              content
+              createdAt
+            }
+            Article {
+              id
+              title
+              description
+              content
+              createdAt
+            }
+            avatar {
+              id
+              url
+            }
+        }
+      }
+      `;
+
+      const response = await request(endpoint, mutation, { name: 'Wallace' });
+
+      return response?.getUser;
     } catch (err) {
       console.log("ERROR DURING FETCH REQUEST", err);
     }
@@ -76,11 +73,10 @@ export const getUser = async () => {
 
 export const getUserAbout = async () => {
   try {
-    const headers = {
-      "content-type": "application/json",
-    };
-    const requestBody = {
-      query: `query getUser($name: String!) {
+
+    const endpoint = process.env.NEXT_PUBLIC_SERVER_URI!;
+    const mutation = gql`
+        query getUser($name: String!) {
           getUser(name: $name) {
             name
             email
@@ -99,13 +95,11 @@ export const getUserAbout = async () => {
               url
             }
         }
-      }`,
-      variables: { name: 'Wallace' },
-    };
-    const response = await axios.post(process.env.NEXT_PUBLIC_SERVER_URI!, JSON.stringify(requestBody), {
-      headers: headers
-    });  
-    return response?.data.data.getUser;
+      }
+    `;
+    const response = await request(endpoint, mutation, { name: 'Wallace' });
+
+    return response?.getUser;
   } catch (err) {
     console.log("ERROR DURING FETCH REQUEST", err);
   }
@@ -113,11 +107,9 @@ export const getUserAbout = async () => {
   
 export const getUserContact = async () => {
   try {
-    const headers = {
-      "content-type": "application/json",
-    };
-    const requestBody = {
-      query: `query getUser($name: String!) {
+    const endpoint = process.env.NEXT_PUBLIC_SERVER_URI!;
+    const mutation = gql`
+        query getUser($name: String!) {
           getUser(name: $name) {
             name
             email
@@ -132,13 +124,11 @@ export const getUserContact = async () => {
               url
             }
         }
-      }`,
-      variables: { name: 'Wallace' },
-    };
-    const response = await axios.post(process.env.NEXT_PUBLIC_SERVER_URI!, JSON.stringify(requestBody), {
-      headers: headers
-    });  
-    return response?.data.data.getUser;
+      }
+    `;
+    const response = await request(endpoint, mutation, { name: 'Wallace' });
+
+    return response?.getUser;
   } catch (err) {
     console.log("ERROR DURING FETCH REQUEST", err);
   }
@@ -146,11 +136,9 @@ export const getUserContact = async () => {
 
 export const getUserProject = async () => {
   try {
-    const headers = {
-      "content-type": "application/json",
-    };
-    const requestBody = {
-      query: `query getUser($name: String!) {
+    const endpoint = process.env.NEXT_PUBLIC_SERVER_URI!;
+    const mutation = gql`
+        query getUser($name: String!) {
           getUser(name: $name) {
             ProfileUser {
               ProjectPage {
@@ -173,13 +161,11 @@ export const getUserProject = async () => {
               url
             }
         }
-      }`,
-      variables: { name: 'Wallace' },
-    };
-    const response = await axios.post(process.env.NEXT_PUBLIC_SERVER_URI!, JSON.stringify(requestBody), {
-      headers: headers
-    });  
-    return response?.data.data.getUser;
+      }
+    `;
+    const response = await request(endpoint, mutation, { name: 'Wallace' });
+
+    return response?.getUser;
   } catch (err) {
     console.log("ERROR DURING FETCH REQUEST", err);
   }
