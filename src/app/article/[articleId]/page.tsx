@@ -3,6 +3,7 @@
 import { GET_ARTICLE_BY_ID } from "@/app/graphql/actions/article/get-article-by-id.action";
 import NotFound from "@/app/not-found";
 import ClientOnly from "@/components/ClientOnly";
+import Loader from "@/components/Loader";
 import { useQuery } from "@apollo/client";
 import { format } from "date-fns";
 import Link from "next/link";
@@ -18,7 +19,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
 
     const { articleId } = params;
 
-    const { data: articleData } = useQuery(GET_ARTICLE_BY_ID, {
+    const { data: articleData, loading } = useQuery(GET_ARTICLE_BY_ID, {
         variables: {
             getArticleDto: {
                 id: articleId
@@ -28,7 +29,11 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
 
     const article = articleData?.getArticleById;
 
-    if (!article) {
+    if (loading) {
+        return <Loader />
+    }
+
+    if (!article && !loading) {
         return (
             <NotFound />
         );

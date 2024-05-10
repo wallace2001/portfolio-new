@@ -4,6 +4,7 @@ import { GET_ARTICLE_BY_ID } from "@/app/graphql/actions/article/get-article-by-
 import { GET_PROJECT_BY_ID } from "@/app/graphql/actions/project/get-project-by-id.action";
 import NotFound from "@/app/not-found";
 import ClientOnly from "@/components/ClientOnly";
+import Loader from "@/components/Loader";
 import { useQuery } from "@apollo/client";
 import { format } from "date-fns";
 import Link from "next/link";
@@ -19,7 +20,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
     const { projectId } = params;
 
-    const { data: projectData } = useQuery(GET_PROJECT_BY_ID, {
+    const { data: projectData, loading } = useQuery(GET_PROJECT_BY_ID, {
         variables: {
             getProjectDto: {
                 id: projectId
@@ -29,7 +30,13 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
 
     const project = projectData?.getProjectById;
 
-    if (!project) {
+    if (loading) {
+        return (
+            <Loader />
+        );
+    }
+
+    if (!project && !loading) {
         return (
             <NotFound />
         );
