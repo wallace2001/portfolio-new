@@ -13,7 +13,7 @@ const AboutPage = async () => {
     }
 
     return (
-        <AboutClient />
+        <AboutClient user={profile} />
     );
 }
 

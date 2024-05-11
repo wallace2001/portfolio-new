@@ -6,20 +6,11 @@ import { SOCIAL_MEDIAS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
-import NotFound from "../not-found";
-import { GET_USER_ABOUT } from "../graphql/actions/user/get-user-about";
-import { useQuery } from "@apollo/client";
-import Loader from "@/components/Loader";
+interface IAboutClient {
+    user: User;
+}
 
-const AboutClient = () => {
-
-    const { data: userData, loading } = useQuery(GET_USER_ABOUT, { variables: { name: 'Wallace' } });
-
-    const profileUser: User = userData?.getUser;
-
-    if (loading) {
-        return <Loader />
-    }
+const AboutClient = ({ user }: IAboutClient) => {
 
     const processHTML = (html: string) => {
         if (!html) return "";
@@ -37,24 +28,24 @@ const AboutClient = () => {
                         width={300}
                         height={300}
                         className="rounded-2xl mt-2"
-                        src={profileUser.avatar.url}
+                        src={user.avatar.url}
                         alt=""
                     />
                 </div>
                 <div className="sm:max-w-[80vw] max-w-[90vw] col-span-4 flex flex-col">
-                    <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: processHTML(profileUser.ProfileUser.about) }} />
+                    <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: processHTML(user.ProfileUser.about) }} />
                 </div>
                 <div className="hidden lg:flex col-span-2 flex-col">
                     <Image
                         width={300}
                         height={300}
                         className="rounded-2xl mt-2"
-                        src={profileUser.avatar.url}
+                        src={user.avatar.url}
                         alt=""
                     />
 
                     <div className="flex flex-col mt-8 gap-2">
-                        {profileUser?.ProfileUser?.linkProfiles?.map(social => (
+                        {user?.ProfileUser?.linkProfiles?.map(social => (
                             <Link target="_blank" href={social.linkUrl} key={social.linkUrl} className="flex justify-start items-center text-foreground/50 hover:text-[#2CBDAA] text-sm">
                                 <div className="flex justify-center gap-2">
                                     {SOCIAL_MEDIAS[social.link.icon].icon}
@@ -68,13 +59,13 @@ const AboutClient = () => {
 
                     <Link href="#" className="my-2 flex flex-row items-center text-foreground/50 hover:text-[#2CBDAA]">
                         <MdEmail color="var(--foreground/80)" />
-                        <p className="text-[13px] ml-2 font-bold">{profileUser.email}</p>
+                        <p className="text-[13px] ml-2 font-bold">{user.email}</p>
                     </Link>
                 </div>
                 <div className="lg:hidden flex col-span-2 flex-col">
                     <div className="flex flex-col mt-8">
                         <div className="flex flex-col mt-8 gap-4 justify-start items-start">
-                            {profileUser?.ProfileUser?.linkProfiles?.map(social => (
+                            {user?.ProfileUser?.linkProfiles?.map(social => (
                                 <Link target="_blank" href={social.linkUrl} key={social.linkUrl} className="flex justify-center items-center text-foreground/50 hover:text-[#2CBDAA]">
                                 <div className="flex justify-center gap-2">
                                     {SOCIAL_MEDIAS[social.link.icon].icon}
@@ -89,7 +80,7 @@ const AboutClient = () => {
 
                     <Link href="#" className="my-2 flex flex-row items-center text-foreground/50 hover:text-[#2CBDAA]">
                         <MdEmail color="var(--foreground/80)" />
-                        <p className="text-[13px] ml-2 font-bold">{profileUser.email}</p>
+                        <p className="text-[13px] ml-2 font-bold">{user.email}</p>
                     </Link>
                 </div>
             </div>

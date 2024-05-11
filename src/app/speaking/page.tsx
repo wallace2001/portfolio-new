@@ -12,7 +12,7 @@ const SpeakingPage = async () => {
     }
 
     return (
-        <SpeakingClient />
+        <SpeakingClient user={user} />
     );
 }
 
