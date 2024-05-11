@@ -15,7 +15,7 @@ const CardEmail = ({ email }: ICardEmail) => {
                     <MdOutlineMailOutline className="text-foreground/80 mr-2 " size={20} />
                     <span className="text-[14px] font-bold">Entre em contato</span>
                 </div>
-                <p className="text-[13px] mt-2 text-foreground/50">Preenche os dados para contato.</p>
+                <p className="text-[13px] mt-2 text-foreground/50">Preenche os dados para contato. Irei responder o mais rápido possivel :)</p>
             </CardContent>
             <CardFooter className="items-center space-y-2 flex-col">
             <FormEmail email={email} />
