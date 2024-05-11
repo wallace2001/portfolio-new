@@ -10,27 +10,38 @@ import Link from "next/link";
 import { Suspense } from "react";
 import CardEmail from "./components/card-email";
 import CardExperiences from "./components/card-experiences";
+import { useQuery } from "@apollo/client";
+import { GET_USER } from "../graphql/actions/user/get-user.action";
+import Loader from "@/components/Loader";
 
 interface IHomeClient {
     user: User;
 }
 
 const HomeClient = ({ user }: IHomeClient) => {
+    const { data: userData, loading } = useQuery(GET_USER, { variables: { name: 'Wallace' } });
+
+    const profileUser: User = userData?.getUser;
+
+    if (loading) {
+        return <Loader />
+    }
+
     return (
         <ClientOnly>
             <Image
                 width={60}
                 height={60}
                 className="rounded-full mt-20"
-                src={user?.avatar.url}
+                src={profileUser?.avatar.url}
                 alt=""
             />
 
             <div className="py-12">
-                <h4 className="text-4xl md:text-5xl font-bold w-[80%]">{user?.ProfileUser.title}</h4>
-                <p className="text-foreground/50 text-sm py-6 lg:w-[80%] leading-6">{user?.ProfileUser.description}</p>
+                <h4 className="text-4xl md:text-5xl font-bold w-[80%]">{profileUser?.ProfileUser.title}</h4>
+                <p className="text-foreground/50 text-sm py-6 lg:w-[80%] leading-6">{profileUser?.ProfileUser.description}</p>
                 <div className="grid grid-cols-4 gap-10 w-24">
-                    {user?.ProfileUser?.linkProfiles?.map(social => (
+                    {profileUser?.ProfileUser?.linkProfiles?.map(social => (
                         <Link target="_blank" href={social.linkUrl} key={social.linkUrl} className="text-foreground/50 hover:text-foreground/70">
                             {SOCIAL_MEDIAS[social.link.icon].icon}
                         </Link>
@@ -38,7 +49,7 @@ const HomeClient = ({ user }: IHomeClient) => {
                 </div>
             </div>
             <Suspense>
-                <CarouselPlugin techs={user?.ProfileUser.techs} title="Tecnologias"/>
+                <CarouselPlugin techs={profileUser?.ProfileUser.techs} title="Tecnologias"/>
             </Suspense>
             <div className="grid lg:grid-cols-5 lg:gap-4 grid-cols-2">
                 <div className="col-span-3 w-full">
