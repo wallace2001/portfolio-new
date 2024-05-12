@@ -15,7 +15,7 @@ query getUser($name: String!) {
         id
         title
         description
-        image {
+        images {
           url
         }
         content

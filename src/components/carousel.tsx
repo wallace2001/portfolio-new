@@ -1,26 +1,37 @@
 "use client";
 
 import {
-  Carousel, CarouselContent, CarouselItem
+  Carousel, CarouselContent, CarouselItem,
+  CarouselNext,
+  CarouselPrevious
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from 'react';
 import { Card, CardContent } from './ui/card';
 import Icon from "./icon";
+import Image from "next/image";
+import _ from "lodash";
 
 interface ICarousel {
-  title: string;
-  techs: Tech[];
+  title?: string;
+  techs?: Tech[];
+  images?: {url: string}[];
+  hasArrows?: boolean;
 }
 
-export const CarouselPlugin = ({ title, techs }: ICarousel) => {
+export const CarouselPlugin = ({
+  title,
+  techs,
+  images,
+  hasArrows = true
+}: ICarousel) => {
   const plugin = useRef(
-    Autoplay({ delay: 1500, stopOnInteraction: false })
+    Autoplay({ delay: 2000, stopOnInteraction: false,  })
   );
 
   return (
     <div className="flex flex-col my-10">
-      <span className="text-foreground/70 font-bold mb-4">{title}</span>
+      {title && <span className="text-foreground/70 font-bold mb-4">{title}</span>}
       <Carousel
         plugins={[plugin.current]}
         opts={{
@@ -41,7 +52,26 @@ export const CarouselPlugin = ({ title, techs }: ICarousel) => {
               </div>
             </CarouselItem>
           ))}
+          {images?.map((_, index) => (
+            <CarouselItem key={index} className={`${images.length > 1 ? 'basis-11/12' : 'basis-12/12 max-h-[35rem] w-full'}`}>
+              <Image 
+                width={1080}
+                height={720}
+                src={_.url}
+                className="h-full object-fill"
+                alt=""
+              />
+            </CarouselItem>
+          ))}
         </CarouselContent>
+        <div className="hidden md:flex">
+        {hasArrows && (_.size(images) > 1) && (
+          <>
+            <CarouselPrevious />
+            <CarouselNext />
+          </>
+        )}
+        </div>
       </Carousel>
     </div>
   );

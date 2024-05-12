@@ -44,7 +44,7 @@ const HomeClient = ({ user }: IHomeClient) => {
                 </div>
             </div>
             <Suspense>
-                <CarouselPlugin techs={user?.ProfileUser.techs} title="Tecnologias"/>
+                <CarouselPlugin hasArrows={false} techs={user?.ProfileUser.techs} title="Tecnologias"/>
             </Suspense>
             <div className="grid lg:grid-cols-5 lg:gap-4 grid-cols-2">
                 {loading ? (

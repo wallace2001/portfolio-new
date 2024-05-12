@@ -88,9 +88,9 @@ interface Project {
     title: string;
     description: string;
     content: string;
-    image: {
+    images: {
         url: string;
-    }
+    }[]
     createdAt: string;
 }
 

@@ -42,7 +42,7 @@ export const getUser = async () => {
             Project {
               title
               description
-              image {
+              images {
                 url
               }
               content
@@ -150,7 +150,7 @@ export const getUserProject = async () => {
               id
               title
               description
-              image {
+              images {
                 url
               }
               content

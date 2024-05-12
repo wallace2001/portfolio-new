@@ -5,9 +5,11 @@ import { GET_PROJECT_BY_ID } from "@/app/graphql/actions/project/get-project-by-
 import NotFound from "@/app/not-found";
 import ClientOnly from "@/components/ClientOnly";
 import Loader from "@/components/Loader";
+import { CarouselPlugin } from "@/components/carousel";
 import { useQuery } from "@apollo/client";
 import { format } from "date-fns";
 import Link from "next/link";
+import { Suspense } from "react";
 import { IoArrowBackOutline } from "react-icons/io5";
 
 interface ProjectPageProps {
@@ -63,6 +65,12 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                             <span className="ml-6 text-[12px] text-foreground/50">{project?.createdAt && format(project?.createdAt, 'MMMM d, yyyy')}</span>
                         </div>
                         <div className="">
+                            <p className="text-4xl md:text-5xl text-foreground font-bold lg:w-[80%] w-full">
+                                {project?.title}
+                            </p>
+                            <Suspense>
+                                <CarouselPlugin images={project?.images}/>
+                            </Suspense>
                             <div dangerouslySetInnerHTML={{ __html: processHTML(project?.content) }} />
                         </div>
                     </div>

@@ -31,7 +31,7 @@ const ProjectItem = ({ project }: IProjectItem) => {
                         <div className="flex items-start">
                             <div className="w-12 h-12 rounded-full bg-foreground/10">
                                 <Image 
-                                    src={project?.image.url}
+                                    src={project?.images[0].url}
                                     width={720}
                                     height={720}
                                     className="w-full h-full object-cover rounded-full"
