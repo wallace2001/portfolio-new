@@ -52,7 +52,8 @@ const HomeClient = ({ user }: IHomeClient) => {
                     <Loader />
                     </div>
                 ) : (
-                    <div className="col-span-3 w-full">
+                    <div className="col-span-3 w-full mt-10">
+                        <p className="px-4 text-3xl font-bold">Artigos</p>
                     {articles?.Article.map(article => (
                         <Article key={article.title} article={article} />
                     ))}
