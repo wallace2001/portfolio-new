@@ -58,7 +58,7 @@ export const CarouselPlugin = ({
                     width={1920}
                     height={1080}
                     src={_.url}
-                    className="md:h-[35rem] h-full object-fill"
+                    className="md:h-[35rem] h-full object-cover"
                     alt=""
                   />
                 </CarouselItem>
