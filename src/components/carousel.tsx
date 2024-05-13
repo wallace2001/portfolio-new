@@ -52,17 +52,17 @@ export const CarouselPlugin = ({
               </div>
             </CarouselItem>
           ))}
-          {images?.map((_, index) => (
-            <CarouselItem key={index} className={`${images.length > 1 ? 'basis-11/12' : 'basis-12/12 max-h-[35rem] w-full'}`}>
-              <Image 
-                width={1080}
-                height={720}
-                src={_.url}
-                className="h-full object-fill"
-                alt=""
-              />
-            </CarouselItem>
-          ))}
+            {images?.map((_, index) => (
+                <CarouselItem key={index} className={images.length > 1 ? 'basis-11/12' : 'basis-12/12 max-h-[35rem] w-full'}>
+                  <Image 
+                    width={1920}
+                    height={1080}
+                    src={_.url}
+                    className="md:h-[35rem] h-full object-fill"
+                    alt=""
+                  />
+                </CarouselItem>
+            ))}
         </CarouselContent>
         <div className="hidden md:flex">
         {hasArrows && (_.size(images) > 1) && (
