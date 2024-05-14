@@ -39,7 +39,7 @@ const MobileSidebar = () => {
                                         href={route.link}
                                         className={
                                             cn("text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-foreground hover:bg-foreground/10 rounded-lg transition",
-                                                pathname === route.link ? "text-foreground bg-foreground/5" : "text-zinc-400")
+                                                pathname.includes(route.link) ? "text-foreground bg-foreground/5" : "text-zinc-400")
                                         }
                                     >
                                         <div className="flex items-center flex-1">

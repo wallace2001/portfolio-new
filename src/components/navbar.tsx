@@ -63,7 +63,7 @@ const Navbar = () => {
                             {OPTIONS.map(option => (
                                 <Link className={
                                     cn("m-2 text-[13px] hover:text-[#2CBDAA]",
-                                    pathname === option.link ? 'text-[#2CBDAA]' : ''
+                                    pathname.includes(option.link) ? 'text-[#2CBDAA]' : ''
                                     )
                                 } href={option.link} key={option.id}>
                                     {option.value}

@@ -10,6 +10,7 @@ import { useQuery } from "@apollo/client";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Suspense } from "react";
+import { ptBR } from "date-fns/locale";
 import { IoArrowBackOutline } from "react-icons/io5";
 
 interface ProjectPageProps {
@@ -62,7 +63,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                     <div className="col-span-6 mt-8">
                         <div className="w-full h-4 flex flex-row items-center mb-4">
                             <span className="w-[2px] h-full bg-foreground/20" />
-                            <span className="ml-6 text-[12px] text-foreground/50">{project?.createdAt && format(project?.createdAt, 'MMMM d, yyyy')}</span>
+                            <span className="ml-6 text-[12px] text-foreground/50">{project?.createdAt && format(project?.createdAt, 'MMMM d, yyyy', { locale: ptBR })}</span>
                         </div>
                         <div className="">
                             <p className="text-4xl md:text-5xl text-foreground font-bold lg:w-[80%] w-full">
