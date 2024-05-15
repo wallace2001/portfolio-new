@@ -35,7 +35,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="z-10 fixed top-10 left-0 right-0 px-10 md:hidden flex justify-between items-center w-full">
+            <div className="z-10 fixed top-10 left-0 right-0 px-10 md:hidden flex justify-between items-center">
                 <div className="flex justify-end w-full">
                     <div className="mr-4">
                         <MobileSidebar />
@@ -45,7 +45,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className={`z-10 transition ease-in-out fixed top-10 left-0 right-0 w-full md:flex md:w-full hidden justify-center items-center`}>
+            <div className={`z-10w-[20rem] transition ease-in-out fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:flex hidden justify-center items-center`}>
                 <div className="flex justify-between items-center">
                     <div className="flex-1" />
                     <div className="flex-1 flex justify-center">
@@ -63,7 +63,7 @@ const Navbar = () => {
                             {OPTIONS.map(option => (
                                 <Link className={
                                     cn("m-2 text-[13px] hover:text-[#2CBDAA]",
-                                    pathname.includes(option.link) ? 'text-[#2CBDAA]' : ''
+                                    ( option.link === '/' ? pathname === option.link : pathname.includes(option.link)) ? 'text-[#2CBDAA]' : ''
                                     )
                                 } href={option.link} key={option.id}>
                                     {option.value}
