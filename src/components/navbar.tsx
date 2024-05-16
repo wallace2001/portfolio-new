@@ -45,7 +45,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className={`z-10w-[20rem] transition ease-in-out fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:flex hidden justify-center items-center`}>
+            <div className={`z-10 w-[20rem] transition ease-in-out fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:flex hidden justify-center items-center`}>
                 <div className="flex justify-between items-center">
                     <div className="flex-1" />
                     <div className="flex-1 flex justify-center">
