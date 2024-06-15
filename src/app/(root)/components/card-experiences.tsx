@@ -41,14 +41,7 @@ const CardExperiences = ({ experiences, cvUrl }: ICardExperiences) => {
                 {experiences?.map(experience => (
                 <div key={experience.name} className="flex justify-between items-center mt-8">
                     <div className="flex justify-between items-center">
-                        <div className="w-10 h-10 bg-foreground/5 rounded-full flex justify-center items-center">
-                            <Image
-                                width={30}
-                                height={30}
-                                src="https://freelancer.com.br/images/main-page/hit-card1.png"
-                                alt=""
-                            />
-                        </div>
+                        <div className="w-10 h-10 bg-foreground/5 rounded-full flex justify-center items-center" />
                         <div className="flex flex-col ml-4">
                             <span className="text-[13px]">{experience.name}</span>
                             <span className="text-[12px] text-foreground/50 mt-2">Fullstack</span>
