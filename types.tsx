@@ -67,6 +67,7 @@ interface Article {
 
 interface Experiences {
     name: string;
+    function: string;
     date: {
         from: string;
         to: string;

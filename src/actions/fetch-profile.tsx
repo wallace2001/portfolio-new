@@ -33,6 +33,7 @@ export const getUser = async () => {
               }
               experiences {
                 name
+                function
                 date {
                   from
                   to
