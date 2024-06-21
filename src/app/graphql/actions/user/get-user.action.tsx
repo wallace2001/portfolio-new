@@ -39,7 +39,7 @@ query getUser($name: String!) {
       Project {
         title
         description
-        image {
+        images {
           url
         }
         content
