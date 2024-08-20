@@ -66,7 +66,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
                             <span className="ml-6 text-[12px] text-foreground/50">{project?.createdAt && format(project?.createdAt, 'MMMM d, yyyy', { locale: ptBR })}</span>
                         </div>
                         <div className="">
-                            <p className="text-4xl md:text-5xl text-foreground font-bold lg:w-[80%] w-full">
+                            <p className="text-4xl md:text-5xl text-foreground font-bold lg:w-[90%] w-full">
                                 {project?.title}
                             </p>
                             <Suspense>

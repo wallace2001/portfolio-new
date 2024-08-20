@@ -26,7 +26,7 @@ export const CarouselPlugin = ({
   hasArrows = true
 }: ICarousel) => {
   const plugin = useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false,  })
+    Autoplay({ delay: 4000, stopOnInteraction: false,  })
   );
 
   return (
@@ -53,12 +53,12 @@ export const CarouselPlugin = ({
             </CarouselItem>
           ))}
             {images?.map((_, index) => (
-                <CarouselItem key={index} className={images.length > 1 ? 'basis-11/12' : 'basis-12/12 max-h-[35rem] w-full'}>
+                <CarouselItem key={index} className={images.length > 1 ? 'w-full basis-12/12' : 'basis-12/12 max-h-[35rem] w-full'}>
                   <Image 
                     width={1920}
                     height={1080}
                     src={_.url}
-                    className="md:h-[35rem] h-full object-cover"
+                    className="md:h-[35rem] h-full object-contain"
                     alt=""
                   />
                 </CarouselItem>
