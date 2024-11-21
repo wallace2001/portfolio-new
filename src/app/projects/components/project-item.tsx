@@ -41,7 +41,7 @@ const ProjectItem = ({ project }: IProjectItem) => {
                         </div>
                         <div className="flex flex-col items-start">
                             <p className="text-[15px] mt-2 font-bold text-foreground/80">{project?.title}</p>
-                            <p className="text-sm mt-2 text-foreground/50">{truncatedDescription}</p>
+                            <p className="text-sm mt-2 text-foreground/50 line-clamp-2">{truncatedDescription}</p>
                             <p className={
                                 cn("mt-4 text-foreground/50 flex items-center",
                                 isHovered ? "text-[#2CBDAA]" : ""
