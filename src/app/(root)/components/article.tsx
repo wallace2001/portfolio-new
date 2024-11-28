@@ -15,8 +15,8 @@ const Article = ({ article }: IArticle) => {
 
     const pathname = usePathname();
     return (
-        <div className="space-y-4 py-4 flex flex-col bg-backgroundContent text-white">
-            <div className="py-2 flex-1 mt-6">
+        <div className="space-y-4 flex flex-col bg-backgroundContent text-white">
+            <div className="flex-1">
                 <div className="space-y-1">
                     <Link
                         href={`/article/${id}`}
