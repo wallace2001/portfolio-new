@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 interface IArticle {
     article: Article;
@@ -28,7 +29,7 @@ const Article = ({ article }: IArticle) => {
                     >
                         <div className="w-full h-4 flex flex-row items-center mb-4">
                             <span className="w-[2px] h-full bg-foreground/30" />
-                            <span className="ml-6 text-[12px]">{format(new Date(createdAt), 'MMMM d, yyyy')}</span>
+                            <span className="ml-6 text-[12px]">{format(new Date(createdAt), 'MMMM d, yyyy', { locale: ptBR })}</span>
                         </div>
 
                         <h4 className="text-foreground text-[14px]">{title}</h4>
