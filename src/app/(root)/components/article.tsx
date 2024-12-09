@@ -36,7 +36,7 @@ const Article = ({ article }: IArticle) => {
                         <span className="my-4 text-[12px]">{description}</span>
 
                         <div className="flex justify-start items-center text-[#2CBDAA]">
-                            <span>Ver projeto</span>
+                            <span>Ver artigo</span>
                             <MdOutlineKeyboardArrowRight />
                         </div>
                     </Link>
