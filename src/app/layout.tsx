@@ -19,6 +19,15 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <link
+        rel="icon"
+        href="/favicon.svg"
+        type="image/svg"
+        style={{
+          borderRadius: 20
+        }}
+        sizes="32x32"
+      />
       <body className={inter.className}>
         <Providers>{children}</Providers>
         <Toaster position="top-center" reverseOrder={false} />
