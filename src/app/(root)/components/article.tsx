@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 interface IArticle {
     article: Article;
@@ -15,8 +16,8 @@ const Article = ({ article }: IArticle) => {
 
     const pathname = usePathname();
     return (
-        <div className="space-y-4 py-4 flex flex-col bg-backgroundContent text-white">
-            <div className="py-2 flex-1 mt-6">
+        <div className="space-y-4 flex flex-col bg-backgroundContent text-white">
+            <div className="flex-1">
                 <div className="space-y-1">
                     <Link
                         href={`/article/${id}`}
@@ -28,14 +29,14 @@ const Article = ({ article }: IArticle) => {
                     >
                         <div className="w-full h-4 flex flex-row items-center mb-4">
                             <span className="w-[2px] h-full bg-foreground/30" />
-                            <span className="ml-6 text-[12px]">{format(new Date(createdAt), 'MMMM d, yyyy')}</span>
+                            <span className="ml-6 text-[12px]">{format(new Date(createdAt), 'MMMM d, yyyy', { locale: ptBR })}</span>
                         </div>
 
                         <h4 className="text-foreground text-[14px]">{title}</h4>
                         <span className="my-4 text-[12px]">{description}</span>
 
                         <div className="flex justify-start items-center text-[#2CBDAA]">
-                            <span>Ver projeto</span>
+                            <span>Ver artigo</span>
                             <MdOutlineKeyboardArrowRight />
                         </div>
                     </Link>

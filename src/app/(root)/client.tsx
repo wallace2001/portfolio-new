@@ -55,7 +55,9 @@ const HomeClient = ({ user }: IHomeClient) => {
                     <div className="col-span-3 w-full mt-10">
                         <p className="px-4 text-3xl font-bold">Artigos</p>
                     {articles?.Article.map(article => (
-                        <Article key={article.title} article={article} />
+                        <div key={article.id} className="mt-4">
+                            <Article key={article.title} article={article} />
+                        </div>
                     ))}
                 </div>
                 )}
