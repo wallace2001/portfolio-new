@@ -26,8 +26,8 @@ const ProjectsClient = ({ user }: IProjectsClient) => {
 
             {!profileUser && !loading ? (
                             <EmptyState 
-                            title = "Seu usuário ainda não possui um perfil."
-                            subtitle= "Vá até a página 'Home' e comece a criar seu portfólio."
+                            title = "Algo de errado aconteceu."
+                            subtitle= "Esse problema já está sendo resolvido..."
                         />
             ) : (
                 loading ? (
